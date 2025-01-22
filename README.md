@@ -31,8 +31,8 @@
 
 1. Клонируйте репозиторий:
 ```bash
-git clone [URL вашего репозитория]
-cd nest-backend
+git clone https://github.com/ValyaSHmelev/nest-pg-auth-role-boilerplate.git
+cd nest-pg-auth-role-boilerplate
 ```
 
 2. Установите зависимости:
@@ -40,17 +40,18 @@ cd nest-backend
 npm install
 ```
 
-3. Создайте файл `.development.env` и `.production.env` с необходимыми переменными окружения
+3. Скопируйте `.example.env` в `.development.env` и `.production.env` и настройте переменные окружения:
+```bash
+cp .example.env .development.env
+cp .example.env .production.env
+```
 
-Пример содержимого `.development.env`:
+Затем отредактируйте файлы, указав ваши значения для:
 ```env
-PORT=5000
-POSTGRES_HOST=localhost
-POSTGRES_USER=postgres
-POSTGRES_DB=nest-backend
-POSTGRES_PASSWORD=root
-POSTGRES_PORT=5432
-PRIVATE_KEY=secret_key_123
+POSTGRES_USER=YOUR_PG_USER
+POSTGRES_DB=YOUR_PG_DB
+POSTGRES_PASSWORD=YOUR_PG_PASSWORD
+PRIVATE_KEY=YOUR_SECRET_KEY
 ```
 
 4. Запустите приложение:
@@ -90,10 +91,14 @@ http://localhost:5000/api/docs
 ```
 src/
 ├── auth/           # Модуль аутентификации
-├── users/          # Модуль пользователей
-├── roles/          # Модуль ролей
-├── config/         # Конфигурация приложения
-└── main.ts         # Точка входа в приложение
+├── exceptions/     # Обработчики исключений
+├── files/         # Модуль работы с файлами
+├── pipes/         # Пользовательские пайпы
+├── posts/         # Модуль публикаций
+├── roles/         # Модуль ролей
+├── users/         # Модуль пользователей
+├── app.module.ts  # Корневой модуль приложения
+└── main.ts        # Точка входа в приложение
 ```
 
 ## Лицензия
